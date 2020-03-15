@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "RedHaired",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.4,
+  "sample": 15,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "13db52fb-9c3c-49b9-829d-10a7dba55e6b"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "13908c96-96cc-4e7e-abbc-4b6bdaaa36d9"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "83f78fe7-d5a0-4111-8fea-85d17257e37e"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "711c353b-c9a3-4d42-9516-9c62337832d7"
+            }
+          },
+          {
+            "frame": 0.26666666666666666,
+            "value": {
+              "__uuid__": "2fec9dfe-3fa5-4b06-a6d5-edc0cafc7f42"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "d8a9fcd1-3404-4b01-992b-b9bd4e8cd92f"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
