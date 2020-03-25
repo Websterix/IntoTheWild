@@ -4,6 +4,7 @@ cc.Class({
 
     onLoad: function () {
         this.sdkBoxPlayInit();
+        this.saveGame();
     },
 
     sdkBoxPlayInit: function () {
@@ -106,4 +107,64 @@ cc.Class({
             sdkbox.PluginSdkboxPlay.showLeaderboard('IntoTheWildLeaderboard');
         }
     },
+
+    saveGame: function() {
+        if (cc.sys.isMobile && sdkbox.PluginSdkboxPlay.isSignedIn()) {
+            var isScarredBought = cc.sys.localStorage.getItem('isScarredBought');
+            var isGeekBought = cc.sys.localStorage.getItem('isGeekBought');
+            var isMoustachedBought = cc.sys.localStorage.getItem('isMoustachedBought');
+            var isNormalBoyBought = cc.sys.localStorage.getItem('isNormalBoyBought');
+            var isNormalGirlBought = cc.sys.localStorage.getItem('isNormalGirlBought');
+            var isThiefBought = cc.sys.localStorage.getItem('isThiefBought');
+            var isRacoonBought = cc.sys.localStorage.getItem('isRacoonBought');
+            var isRedHairedBought = cc.sys.localStorage.getItem('isRedHairedBought');
+            var isBeardedBought = cc.sys.localStorage.getItem('isBeardedBought');
+
+            var money = cc.sys.localStorage.getItem('money');
+            var highestScore = cc.sys.localStorage.getItem('highestScore');
+
+            var dashLevel = cc.sys.localStorage.getItem('dashLevel');
+            var invincibleLevel = cc.sys.localStorage.getItem('invincibleLevel');
+            var magnetLevel = cc.sys.localStorage.getItem('magnetLevel');
+            
+            var mySave = new Map();
+            mySave.set('isScarredBought', isScarredBought);
+            mySave.set('isGeekBought', isGeekBought);
+            mySave.set('isMoustachedBought', isMoustachedBought);
+            mySave.set('isNormalBoyBought', isNormalBoyBought);
+            mySave.set('isNormalGirlBought', isNormalGirlBought);
+            mySave.set('isThiefBought', isThiefBought);
+            mySave.set('isRacoonBought', isRacoonBought);
+            mySave.set('isRedHairedBought', isRedHairedBought);
+            mySave.set('isBeardedBought', isBeardedBought);
+            mySave.set('money', money);
+            mySave.set('highestScore', highestScore);
+            mySave.set('dashLevel', dashLevel);
+            mySave.set('invincibleLevel', invincibleLevel);
+            mySave.set('magnetLevel', magnetLevel);
+            
+            function mapToObj(inputMap) {
+                let obj = {};
+            
+                inputMap.forEach(function(value, key){
+                    obj[key] = value
+                });
+            
+                return obj;
+            }
+            
+            var mySaveJson = JSON.stringify(mapToObj(mySave));
+            cc.log(mySaveJson);
+            sdkbox.PluginSdkboxPlay.saveGameData("mySave", mySaveJson);
+        }
+    },
+
+    loadGame: function() {
+        if (cc.sys.isMobile && sdkbox.PluginSdkboxPlay.isSignedIn()) {
+
+        var mySave = sdkbox.PluginSdkboxPlay.loadGameData("mySave");
+            var jsonParsed = new Map(Object.entries(JSON.parse(mySave)));
+            cc.log(jsonParsed);
+        }
+    }
 });
